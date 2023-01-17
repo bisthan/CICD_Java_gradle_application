@@ -9,11 +9,11 @@ pipeline{
               }
 
                 steps{
-                    scrips{
-                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-config'
+                    script{
+                        withSonarQubeEnv(credentialsId: 'sonar-config') {
                         sh 'chmod +x gradlew'
                         sh './gradlew sonarqube'
-
+                        }
                     }
                 }
 
