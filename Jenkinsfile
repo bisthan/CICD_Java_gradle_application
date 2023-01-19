@@ -1,5 +1,5 @@
 pipeline{
-    agent ('node_1')
+    agent ('slave')
        stages{
            stage('sonar code analyser'){
               agent {
